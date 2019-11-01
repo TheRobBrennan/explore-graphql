@@ -2,7 +2,7 @@
 
 This code will be modified to follow along with the Apollo tutorial at [https://www.apollographql.com/docs/tutorial/](https://www.apollographql.com/docs/tutorial/).
 
-This guide will contain useful command line snippets and tidbits as I work through the tutorial circa Monday, October 14th, 2019.
+This guide will contain useful command-line snippets and tidbits as I work through the tutorial circa Monday, October 14th, 2019.
 
 ## Apollo server
 
@@ -59,24 +59,24 @@ Start your server with `npm start` and navigate to [http://localhost:4000/](http
 ```sh
 # Get launch details for a specific ID
 query GetLaunchById {
-  launch(id: 60) {
-    id
-    rocket {
-      id
-      type
-    }
-  }
+ launch(id: 60) {
+ id
+ rocket {
+ id
+ type
+ }
+ }
 }
 
 # You can paste { "id": 60 } into the Query Variables section below before running your query.
 query GetLaunchById($id: ID!) {
-  launch(id: $id) {
-    id
-    rocket {
-      id
-      type
-    }
-  }
+ launch(id: $id) {
+ id
+ rocket {
+ id
+ type
+ }
+ }
 }
 ```
 
@@ -84,7 +84,7 @@ query GetLaunchById($id: ID!) {
 
 Running the launches query returned a large data set of launches, which can slow down our app. How can we ensure we're not fetching too much data at once?
 
-Pagination is a solution to this problem that ensures that the server only sends data in small chunks. Cursor-based pagination is our recommended approach over numbered pages, because it eliminates the possibility of skipping items and displaying the same item more than once. In cursor-based pagination, a constant pointer (or cursor) is used to keep track of where in the data set the next items should be fetched from.
+Pagination is a solution to this problem that ensures that the server only sends data in small chunks. Cursor-based pagination is our recommended approach over numbered pages because it eliminates the possibility of skipping items and displaying the same item more than once. In cursor-based pagination, a constant pointer (or cursor) is used to keep track of wherein the data set the next items should be fetched from.
 
 Notice we have a helper function `paginateResults` already defined for us in `src/utils.js`
 
@@ -92,14 +92,14 @@ Notice we have a helper function `paginateResults` already defined for us in `sr
 
 ```sh
 query GetLaunches {
-  launches(pageSize: 3) {
-    launches {
-      id
-      mission {
-        name
-      }
-    }
-  }
+ launches(pageSize: 3) {
+ launches {
+ id
+ mission {
+ name
+ }
+ }
+ }
 }
 ```
 
@@ -117,29 +117,29 @@ Here are the steps you'll want to follow:
 
 ```sh
 mutation LoginUser {
-  login(email: "daisy@apollographql.com")
+ login(email: "daisy@apollographql.com")
 }
 
 Returns
 {
-  "data": {
-    "login": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
-  }
+ "data": {
+ "login": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
+ }
 }
 
 mutation BookTrips {
-  bookTrips(launchIds: [67, 68, 69]) {
-    success
-    message
-    launches {
-      id
-    }
-  }
+ bookTrips(launchIds: [67, 68, 69]) {
+ success
+ message
+ launches {
+ id
+ }
+ }
 }
 
 Only authorized users can book trips, so open the `HTTP Headers` box at the bottom of your GraphQL playground and paste in the login code:
 {
-  "authorization": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
+ "authorization": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
 }
 
 You should see a message that your trips were booked successfully.
@@ -155,7 +155,7 @@ Let's save our key as an environment variable. It's important to make sure we do
 
 #### Check and publish with the Apollo CLI
 
-To publish the schema to Graph Manager!, first start your server in one terminal window with:
+To publish the schema to Graph Manager!, first, start your server in one terminal window with:
 
 ```sh
 $ npm start
@@ -182,6 +182,6 @@ Publishing your schema to Apollo Graph Manager unlocks many features necessary f
 
 + Schema history: Apollo Graph Manager schema history allows developers to confidently iterate a graph's schema by validating the new schema against field-level usage data from the previous schema. This empowers developers to avoid breaking changes by providing insights into which clients will be broken by a new schema.
 
-+ Performance analytics: Fine-grained insights into every field, resolvers and operations of your graph's execution
++ Performance analytics: Fine-grained insights into every field, resolvers, and operations of your graph's execution
 
 + Client awareness: Report client identity (name and version) to your server for insights on client activity.

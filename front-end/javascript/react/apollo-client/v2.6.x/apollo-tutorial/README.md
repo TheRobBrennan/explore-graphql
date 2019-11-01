@@ -2,7 +2,7 @@
 
 This code will be modified to follow along with the Apollo tutorial at [https://www.apollographql.com/docs/tutorial/](https://www.apollographql.com/docs/tutorial/).
 
-This guide will contain useful command line snippets and tidbits as I work through the tutorial circa Monday, October 14th, 2019.
+This guide will contain useful command-line snippets and tidbits as I work through the tutorial circa Monday, October 14th, 2019.
 
 ## Apollo client
 
@@ -29,7 +29,7 @@ Please refer to `src/index.js` to see this in action.
 
 To create a component with `useQuery`, import `useQuery` from `@apollo/react-hooks`, pass your query wrapped with `gql` in as the first parameter, then wire your component up to use the loading, data, and error properties on the result object to render UI in your app.
 
-Why are we wrapping our GraphQL query with `gql`? We need to wrap the query with the `gql` function in order to parse it into an AST.
+Why are we wrapping our GraphQL query with `gql`? We need to wrap the query with the `gql` function to parse it into an AST.
 
 #### Fetching a list
 
@@ -55,11 +55,11 @@ By default, Apollo Client's fetch policy is `cache-first`, which means it checks
 
 ### 7. Update data with mutations
 
-With Apollo Client, updating data from a graph API is as simple as calling a function. Additionally, the Apollo Client cache is smart enough to automatically update in most cases. In this section, we'll learn how to use the `useMutation` hook to login a user.
+With Apollo Client, updating data from a graph API is as simple as calling a function. Additionally, the Apollo Client cache is smart enough to automatically update in most cases. In this section, we'll learn how to use the `useMutation` hook to log in a user.
 
 The useMutation hook is another important building block in an Apollo app. It leverages React's Hooks API to provide a function to execute a GraphQL mutation. Additionally, it tracks the loading, completion, and error state of that mutation.
 
-Updating data with a useMutation hook from @apollo/react-hooks is very similar to fetching data with a useQuery hook. The main difference is that the first value in the useMutation result tuple is a mutate function that actually triggers the mutation when it is called. The second value in the result tuple is a result object that contains loading and error state, as well as the return value from the mutation.
+Updating data with a useMutation hook from @apollo/react-hooks is very similar to fetching data with a useQuery hook. The main difference is that the first value in the useMutation result tuple is a mutate function that triggers the mutation when it is called. The second value in the result tuple is a result object that contains loading and error state, as well as the return value from the mutation.
 
 #### Update data with useMutation
 
@@ -71,7 +71,7 @@ One of the main functions of React Apollo is that it puts your ApolloClient inst
 
 Let's call `useApolloClient` to get the currently configured client instance. Next, we want to pass an `onCompleted` callback to `useMutation` that will be called once the mutation is complete with its return value. This callback is where we will save the login token to `localStorage`.
 
-In our `onCompleted` handler, we also call `client.writeData` to write local data to the Apollo cache indicating that the user is logged in. This is an example of a direct write that we'll explore further in the next section on local state management.
+In our `onCompleted` handler, we also call `client.writeData` to write local data to the Apollo cache indicating that the user is logged in. This is an example of a direct-write that we'll explore further in the next section on local state management.
 
 Let's take a look at `src/pages/login.js`
 
@@ -93,7 +93,7 @@ We can also add local fields to server data by extending types from our server. 
 
 #### Initialize the store
 
-Now that we've created our client schema, let's learn how to initialize the store. Since queries execute as soon as the component mounts, it's important for us to warm the Apollo cache with some default state so those queries don't error out. We will need to write initial data to the cache for both `isLoggedIn` and `cartItems`
+Now that we've created our client schema, let's learn how to initialize the store. Since queries execute as soon as the component mounts, we need to warm the Apollo cache with some default state so those queries don't error out. We will need to write initial data to the cache for both `isLoggedIn` and `cartItems`
 
 Jump back to `src/index.js` and notice we had already added a `cache.writeData` call to prepare the cache in the last section. While we're here, make sure to also import the `typeDefs` and `resolvers` that we just created so we can use them later.
 
@@ -119,7 +119,7 @@ Up until now, we've focused on querying local data from the Apollo cache. Apollo
 
 ##### Direct cache writes
 
-Direct cache writes are convenient when you want to write a simple field, like a boolean or a string, to the Apollo cache. We perform a direct write by calling `client.writeData()` and passing in an object with a data property that corresponds to the data we want to write to the cache. We've already seen an example of a direct write, when we called `client.writeData` in the `onCompleted` handler for the login `useMutation` based component.
+Direct cache writes are convenient when you want to write a simple field, like a boolean or a string, to the Apollo cache. We perform a direct-write by calling `client.writeData()` and passing in an object with a data property that corresponds to the data we want to write to the cache. We've already seen an example of a direct-write, when we called `client.writeData` in the `onCompleted` handler for the login `useMutation` based component.
 
 Refer to `src/containers/logout-button.js` - Let's look at a similar example, where we copy the code below to create a logout button.
 
@@ -131,6 +131,6 @@ Refer to `src/containers/book-trips.js` - we can also perform direct writes with
 
 We're not done yet! What if we wanted to perform a more complicated local data update such as adding or removing items from a list? For this situation, we'll use a local resolver. Local resolvers have the same function signature as remote resolvers `((parent, args, context, info) => data)`. The only difference is that the Apollo cache is already added to the context for you. Inside your resolver, you'll use the cache to read and write data.
 
-Refer to `src/resolvers.js` - Let's write the local resolver for the `addOrRemoveFromCart` mutation. You should place this resolver underneath the Launch resolver we wrote earlier. In this resolver, we destructure the Apollo cache from the context in order to read the query that fetches cart items. Once we have our cart data, we either remove or add the cart item's id passed into the mutation to the list. Finally, we return the updated list from the mutation.
+Refer to `src/resolvers.js` - Let's write the local resolver for the `addOrRemoveFromCart` mutation. You should place this resolver underneath the Launch resolver we wrote earlier. In this resolver, we destructure the Apollo cache from the context to read the query that fetches cart items. Once we have our cart data, we either remove or add the cart item's id passed into the mutation to the list. Finally, we return the updated list from the mutation.
 
 Refer to `src/containers/action-button.js` - Let's see how we call the `addOrRemoveFromCart` mutation in a component.
