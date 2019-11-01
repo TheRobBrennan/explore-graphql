@@ -59,24 +59,24 @@ Start your server with `npm start` and navigate to [http://localhost:4000/](http
 ```sh
 # Get launch details for a specific ID
 query GetLaunchById {
- launch(id: 60) {
- id
- rocket {
- id
- type
- }
- }
+  launch(id: 60) {
+    id
+    rocket {
+      id
+      type
+    }
+  }
 }
 
 # You can paste { "id": 60 } into the Query Variables section below before running your query.
 query GetLaunchById($id: ID!) {
- launch(id: $id) {
- id
- rocket {
- id
- type
- }
- }
+  launch(id: $id) {
+    id
+    rocket {
+      id
+      type
+    }
+  }
 }
 ```
 
@@ -92,14 +92,14 @@ Notice we have a helper function `paginateResults` already defined for us in `sr
 
 ```sh
 query GetLaunches {
- launches(pageSize: 3) {
- launches {
- id
- mission {
- name
- }
- }
- }
+  launches(pageSize: 3) {
+    launches {
+      id
+      mission {
+        name
+      }
+    }
+  }
 }
 ```
 
@@ -117,24 +117,24 @@ Here are the steps you'll want to follow:
 
 ```sh
 mutation LoginUser {
- login(email: "daisy@apollographql.com")
+  login(email: "daisy@apollographql.com")
 }
 
 Returns
 {
- "data": {
- "login": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
- }
+  "data": {
+    "login": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
+  }
 }
 
 mutation BookTrips {
- bookTrips(launchIds: [67, 68, 69]) {
- success
- message
- launches {
- id
- }
- }
+  bookTrips(launchIds: [67, 68, 69]) {
+    success
+    message
+    launches {
+      id
+    }
+  }
 }
 
 Only authorized users can book trips, so open the `HTTP Headers` box at the bottom of your GraphQL playground and paste in the login code:
@@ -178,10 +178,10 @@ Now if you navigate to [Apollo Graph Manager](https://engine.apollographql.com/)
 
 Publishing your schema to Apollo Graph Manager unlocks many features necessary for running a graph API in production. Some of these features include:
 
-+ Schema explorer: With Graph Manager's powerful schema registry, you can quickly explore all the types and fields in your schema with usage statistics on each field. This metric makes you understand the cost of a field. How expensive is a field? Is a certain field in so much demand?
+- Schema explorer: With Graph Manager's powerful schema registry, you can quickly explore all the types and fields in your schema with usage statistics on each field. This metric makes you understand the cost of a field. How expensive is a field? Is a certain field in so much demand?
 
-+ Schema history: Apollo Graph Manager schema history allows developers to confidently iterate a graph's schema by validating the new schema against field-level usage data from the previous schema. This empowers developers to avoid breaking changes by providing insights into which clients will be broken by a new schema.
+- Schema history: Apollo Graph Manager schema history allows developers to confidently iterate a graph's schema by validating the new schema against field-level usage data from the previous schema. This empowers developers to avoid breaking changes by providing insights into which clients will be broken by a new schema.
 
-+ Performance analytics: Fine-grained insights into every field, resolvers, and operations of your graph's execution
+- Performance analytics: Fine-grained insights into every field, resolvers, and operations of your graph's execution
 
-+ Client awareness: Report client identity (name and version) to your server for insights on client activity.
+- Client awareness: Report client identity (name and version) to your server for insights on client activity.
