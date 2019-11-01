@@ -1,4 +1,7 @@
-require('dotenv').config();
+// Load our environment variables defined in back-end/javascript/apollo-server/apollo-tutorial/.env
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
 const { createStore } = require('./utils');
