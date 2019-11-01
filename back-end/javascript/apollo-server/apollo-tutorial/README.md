@@ -16,11 +16,11 @@ $ npm install
 $ npm start
 ```
 
-### How did we build it?
+## How did we build it?
 
 This server is the same one that has been referenced in the Apollo tutorial at [https://www.apollographql.com/docs/tutorial/](https://www.apollographql.com/docs/tutorial/)
 
-## 1. Build a schema
+### 1. Build a schema
 
 Our first step will be to install all of our dependencies for the server:
 
@@ -29,7 +29,9 @@ Our first step will be to install all of our dependencies for the server:
 $ npm install
 ```
 
-## 2. Hook up your data sources
+See `back-end/javascript/apollo-server/apollo-tutorial/src/schema.js` for how we defined our GraphQL schema.
+
+### 2. Hook up your data sources
 
 Apollo makes connecting these services to your graph simple with our data source API. An Apollo data source is a class that encapsulates all of the data fetching logic, as well as caching and deduplication, for a particular service. By using Apollo data sources to hook up your services to your graph API, you're also following best practices for organizing your code.
 
@@ -46,11 +48,11 @@ Apollo makes connecting these services to your graph simple with our data source
 
 ```
 
-## 3. Write your graph's resolvers
+### 3. Write your graph's resolvers
 
 Take a look at `src/resolvers.js` for how we implemented our resolvers.
 
-### GraphQL queries
+#### GraphQL queries
 
 Start your server with `npm start` and navigate to [http://localhost:4000/](http://localhost:4000/) to explore the sample GraphQL queries:
 
@@ -78,7 +80,7 @@ query GetLaunchById($id: ID!) {
 }
 ```
 
-### Paginated queries
+#### Paginated queries
 
 Running the launches query returned a large data set of launches, which can slow down our app. How can we ensure we're not fetching too much data at once?
 
@@ -86,7 +88,7 @@ Pagination is a solution to this problem that ensures that the server only sends
 
 Notice we have a helper function `paginateResults` already defined for us in `src/utils.js`
 
-#### More GraphQL queries
+##### More GraphQL queries
 
 ```sh
 query GetLaunches {
@@ -101,7 +103,7 @@ query GetLaunches {
 }
 ```
 
-### Authenticate users
+#### Authenticate users
 
 Access control is a feature that almost every app will have to handle at some point. In this tutorial, we're going to focus on teaching you the essential concepts of authenticating users instead of focusing on a specific implementation.
 
@@ -111,7 +113,7 @@ Here are the steps you'll want to follow:
 2. Authenticate the user within the context function.
 3. Once the user is authenticated, attach the user to the object returned from the context function. This allows us to read the user's information from within our data sources and resolvers, so we can authorize whether they can access the data.
 
-#### Even more GraphQL queries
+##### Even more GraphQL queries
 
 ```sh
 mutation LoginUser {
@@ -143,15 +145,15 @@ Only authorized users can book trips, so open the `HTTP Headers` box at the bott
 You should see a message that your trips were booked successfully.
 ```
 
-## 4. Run your graph in production
+### 4. Run your graph in production
 
-### Get a Graph Manager API key
+#### Get a Graph Manager API key
 
 First, we need an Apollo Graph Manager API key. Navigate to [Apollo Graph Manager](https://engine.apollographql.com/), login, and click on New Graph on the sidebar or at the top. The prompt will instruct you to name your graph. When you're finished, click Create Graph. You'll see a key appear prefixed by service:. Copy that key so we can save it as an environment variable.
 
 Let's save our key as an environment variable. It's important to make sure we don't check our Graph Manager API key into version control. Go ahead and make a copy of the `.env.example` file located in server/ and call it `.env`. Add your Graph Manager API key that you copied from the previous step to the file:
 
-### Check and publish with the Apollo CLI
+#### Check and publish with the Apollo CLI
 
 To publish the schema to Graph Manager!, first start your server in one terminal window with:
 
@@ -172,7 +174,7 @@ $ source .env && npx apollo service:push --endpoint=http://localhost:4000
 
 Now if you navigate to [Apollo Graph Manager](https://engine.apollographql.com/), you can dive into your schema and how it is being used.
 
-#### What are the benefits of Graph Manager
+##### What are the benefits of Graph Manager
 
 Publishing your schema to Apollo Graph Manager unlocks many features necessary for running a graph API in production. Some of these features include:
 
