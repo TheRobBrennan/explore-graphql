@@ -55,16 +55,6 @@ Take a look at `src/resolvers.js` for how we implemented our resolvers.
 Start your server with `npm start` and navigate to [http://localhost:4000/](http://localhost:4000/) to explore the sample GraphQL queries:
 
 ```sh
-# Get our launches
-query GetLaunches {
-  launches {
-    id
-    mission {
-      name
-    }
-  }
-}
-
 # Get launch details for a specific ID
 query GetLaunchById {
   launch(id: 60) {
@@ -96,7 +86,7 @@ Pagination is a solution to this problem that ensures that the server only sends
 
 Notice we have a helper function `paginateResults` already defined for us in `src/utils.js`
 
-#### GraphQL queries
+#### More GraphQL queries
 
 ```sh
 query GetLaunches {
@@ -121,7 +111,7 @@ Here are the steps you'll want to follow:
 2. Authenticate the user within the context function.
 3. Once the user is authenticated, attach the user to the object returned from the context function. This allows us to read the user's information from within our data sources and resolvers, so we can authorize whether they can access the data.
 
-#### GraphQL queries
+#### Even more GraphQL queries
 
 ```sh
 mutation LoginUser {
@@ -172,11 +162,12 @@ $ npm start
 Then, publish your GraphQL schema to the Apollo registry:
 
 ```sh
+# Make sure you are in the back-end/javascript/apollo-server/apollo-tutorial directory
 # Check to see if we have any breaking changes in our GraphQL schema before we publish it to the Apollo registry
-$ npx apollo service:check --endpoint=http://localhost:4000
+$ source .env && npx apollo service:check --endpoint=http://localhost:4000
 
 # Push the GraphQL schema to the Apollo registry
-$ npx apollo service:push --endpoint=http://localhost:4000
+$ source .env && npx apollo service:push --endpoint=http://localhost:4000
 ```
 
 Now if you navigate to [Apollo Graph Manager](https://engine.apollographql.com/), you can dive into your schema and how it is being used.
