@@ -11,6 +11,9 @@ const isEmail = require('isemail');
 const LaunchAPI = require('./datasources/launch');
 const UserAPI = require('./datasources/user');
 
+// DEMO: Apollo Graph Manager
+const internalEngineDemo = require('./engine-demo');
+
 // Set up our database
 const store = createStore();
 
@@ -57,6 +60,7 @@ const server = new ApolloServer({
 
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
+    ...internalEngineDemo,
   },
 
 });
