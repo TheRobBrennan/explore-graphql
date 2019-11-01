@@ -19,6 +19,12 @@ const link = new HttpLink({
   headers: {
     // Attach our login token to the authorization header
     authorization: localStorage.getItem('token'),
+
+    // Define our client here (as well as any custom headers)
+    'client-name': 'Space Explorer [annotated]',
+    'client-version': '1.0.0',
+    // NOTE: Our back-end server will need to do some special processing to parse these custom header names we've created
+    // See back-end/javascript/apollo-server/apollo-tutorial/src/engine-demo.js for an example
   },
 });
 
