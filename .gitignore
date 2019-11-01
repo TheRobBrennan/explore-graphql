@@ -1,6 +1,6 @@
 # Back-end
 back-end/javascript/apollo-server/apollo-tutorial/node_modules
-back-end/javascript/apollo-server/apollo-tutorial/src/.env
+back-end/javascript/apollo-server/apollo-tutorial/.env
 
 # Front-end
 front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/node_modules
