@@ -6,6 +6,8 @@ This guide will contain useful command-line snippets and tidbits as I work throu
 
 ## Apollo client
 
+Before starting this project, you will need to update the `.env.example` file(s) with your own settings and save it as `.env`
+
 IMPORTANT: This tutorial assumes that you will have your back-end GraphQL Apollo server up and running as described in `back-end/javascript/apollo-server/apollo-tutorial/README.md`:
 
 ```sh
