@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  'apollo-tutorial-app':
+  client:
     build:
       context: ./front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial
       dockerfile: ./Dockerfile
@@ -13,9 +13,9 @@ services:
     volumes:
       - ./front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/src:/usr/src/src
     depends_on:
-      - apollo-tutorial-server
+      - server
 
-  'apollo-tutorial-server':
+  server:
     build:
       context: ./back-end/javascript/apollo-server/apollo-tutorial
       dockerfile: ./Dockerfile
