@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  'app-apollo-tutorial':
+  'apollo-tutorial-app':
     build:
       context: ./front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial
       dockerfile: ./Dockerfile
-    container_name: 'app-apollo-tutorial'
+    container_name: 'apollo-tutorial-app'
     command: ./node_modules/.bin/react-scripts start
     ports:
       - "3000:3000"
@@ -13,13 +13,13 @@ services:
     volumes:
       - ./front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/src:/usr/src/src
     depends_on:
-      - server-apollo-tutorial
+      - apollo-tutorial-server
 
-  'server-apollo-tutorial':
+  'apollo-tutorial-server':
     build:
       context: ./back-end/javascript/apollo-server/apollo-tutorial
       dockerfile: ./Dockerfile
-    container_name: 'server-apollo-tutorial'
+    container_name: 'apollo-tutorial-server'
     # This service will not start until either the mongodb service is available OR thirty seconds have elapsed
     command: sh -c './scripts/wait-for.sh --timeout=30 mongodb:27017 && npx nodemon -e js,json,graphql'
     ports:
