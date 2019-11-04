@@ -6,6 +6,8 @@ This guide will contain useful command-line snippets and tidbits as I work throu
 
 ## Apollo server
 
+Before starting this project, you will need to update the `.env.example` file(s) with your own settings and save it as `.env`
+
 In a new terminal window or tab, please navigate to `back-end/javascript/apollo-server/apollo-tutorial`
 
 ```sh
