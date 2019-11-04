@@ -4,15 +4,12 @@
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "description": "A starting point to explore GraphQL",
   "scripts": {
-    "start": "npm run docker:up",
-    "docker:up": "docker-compose up -d && docker-compose logs -f",
-    "docker:up:clean": "docker-compose up --remove-orphans --build -d && docker-compose logs -f",
-    "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs -f",
+    "start": "npm run docker:apollo-tutorial:up",
+    "docker:apollo-tutorial:up": "docker-compose -f docker-compose.apollo-tutorial.yml up",
+    "docker:apollo-tutorial:up:clean": "docker-compose -f docker-compose.apollo-tutorial.yml up --remove-orphans --build",
+    "docker:apollo-tutorial:down": "docker-compose -f docker-compose.apollo-tutorial.yml down",
     "docker:nuke": "npm run docker:nuke:containers && docker rmi -f $(docker images -q)",
-    "docker:nuke:containers": "docker rm $(docker ps -aq)",
-    "docker:refresh": "npm run docker:down && npm run docker:up",
-    "docker:refresh:clean": "npm run docker:down && npm run docker:up:clean"
+    "docker:nuke:containers": "docker rm $(docker ps -aq)"
   },
   "keywords": [
     "graphql"
