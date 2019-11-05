@@ -18,7 +18,7 @@
     "docker:nuke:containers": "docker rm $(docker ps -aq)"
   },
   "keywords": [
-    "graphql"
+    "graphql", "javascript", "front-end", "back-end", "apollo", "apollo-client", "apollo-server", "react", "mongo", "mongodb", "postgres", "postgresql"
   ],
   "license": "ISC",
   "repository": {
