@@ -14,11 +14,14 @@
     "docker:example-client-server-with-postgresql:up": "docker-compose -f docker-compose.example-client-server-with-postgresql.yml up",
     "docker:example-client-server-with-postgresql:up:clean": "docker-compose -f docker-compose.example-client-server-with-postgresql.yml up --remove-orphans --build",
     "docker:example-client-server-with-postgresql:down": "docker-compose -f docker-compose.example-client-server-with-postgresql.yml down",
+    "docker:example-server-with-mongodb-and-postgres:up": "docker-compose -f docker-compose.example-server-using-mongodb-and-postgresql.yml up",
+    "docker:example-server-with-mongodb-and-postgres:up:clean": "docker-compose -f docker-compose.example-server-using-mongodb-and-postgresql.yml up --remove-orphans --build",
+    "docker:example-server-with-mongodb-and-postgres:down": "docker-compose -f docker-compose.example-server-using-mongodb-and-postgresql.yml down",
     "docker:nuke": "npm run docker:nuke:containers && docker rmi -f $(docker images -q)",
     "docker:nuke:containers": "docker rm $(docker ps -aq)"
   },
   "keywords": [
-    "graphql", "javascript", "front-end", "back-end", "apollo", "apollo-client", "apollo-server", "react", "mongo", "mongodb", "postgres", "postgresql"
+    "graphql", "javascript", "front-end", "back-end", "apollo", "apollo-client", "apollo-server", "react", "mongo", "mongodb", "postgres", "postgresql", "mongoose", "knex"
   ],
   "license": "ISC",
   "repository": {
