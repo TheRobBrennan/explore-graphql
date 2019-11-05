@@ -5,3 +5,7 @@ back-end/javascript/apollo-server/apollo-tutorial/.env
 # Front-end
 front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/node_modules
 front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/.env
+
+# Databases
+databases/mongodb/sandbox
+databases/postgresql/sandbox

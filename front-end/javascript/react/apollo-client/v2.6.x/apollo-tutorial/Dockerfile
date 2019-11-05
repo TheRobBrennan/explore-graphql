@@ -4,7 +4,7 @@ FROM mhart/alpine-node:10
 RUN apk add --update bash && rm -rf /var/cache/apk/*
 
 # Create the app directory
-WORKDIR /usr/src
+WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
