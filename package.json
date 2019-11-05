@@ -8,6 +8,9 @@
     "docker:apollo-tutorial:up": "docker-compose -f docker-compose.apollo-tutorial.yml up",
     "docker:apollo-tutorial:up:clean": "docker-compose -f docker-compose.apollo-tutorial.yml up --remove-orphans --build",
     "docker:apollo-tutorial:down": "docker-compose -f docker-compose.apollo-tutorial.yml down",
+    "docker:example-client-server-with-mongodb:up": "docker-compose -f docker-compose.example-client-server-with-mongodb.yml up",
+    "docker:example-client-server-with-mongodb:up:clean": "docker-compose -f docker-compose.example-client-server-with-mongodb.yml up --remove-orphans --build",
+    "docker:example-client-server-with-mongodb:down": "docker-compose -f docker-compose.example-client-server-with-mongodb.yml down",
     "docker:nuke": "npm run docker:nuke:containers && docker rmi -f $(docker images -q)",
     "docker:nuke:containers": "docker rm $(docker ps -aq)"
   },
