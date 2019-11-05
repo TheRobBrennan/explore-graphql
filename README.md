@@ -143,9 +143,13 @@ Stopping explore-graphql-postgresql ... done
 
 ### EXAMPLE: Server using both MongoDB and PostgreSQL
 
-What if we have a back-end server that needs to work with more than one back-end database? 
+What if we have a back-end server that needs to work with more than one back-end database?
 
 Please take a look at the guide at `back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/README.md` to see some important notes and example queries/mutations - as well as an important SQL command that you must run once your PostgreSQL server is up and running.
+
+Before starting this project, you will need to update the following `.env.example` file(s) with your own settings and save them as `.env` in their respective directories:
+
+- `back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/.env.example` -> `back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/.env`
 
 You can spin up the project by running:
 
