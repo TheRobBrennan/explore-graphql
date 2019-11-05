@@ -7,6 +7,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.9.7",
+    "dotenv": "^8.2.0",
     "graphql": "^14.5.8",
     "knex": "^0.20.1",
     "mongodb": "^3.3.3",
