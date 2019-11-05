@@ -1,17 +1,27 @@
+// Load our environment variables defined in back-end/javascript/apollo-server/apollo-tutorial/.env
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 const { ApolloServer, gql } = require("apollo-server");
 const mongoose = require("mongoose");
 const { ObjectID } = require("mongodb");
 const knex = require("knex")({
   client: "pg",
   connection: {
-    host: "postgres",
-    user: "postgres",
-    password: "postgres",
-    database: "postgres"
+    host: process.env.POSTGRES_HOST,
+    user: process.env.POSTGRES_USERNAME,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE,
   }
 });
 
-mongoose.connect("mongodb://mongodb:27017/test", { useNewUrlParser: true });
+const mongoDB = {
+  host: process.env.MONGO_HOST,
+  port: process.env.MONGO_PORT,
+  database: process.env.MONGO_DATABASE,
+}
+const mongoConnectionString = `mongodb://${mongoDB.host}:${mongoDB.port}/${mongoDB.database}`;
+mongoose.connect(mongoConnectionString, { useNewUrlParser: true });
 
 const User = mongoose.model("user", { name: String, bookIds: [Number] });
 
