@@ -11,7 +11,7 @@ services:
       - "3000:3000"
     # Automatically hot reload code changes in the Docker container
     volumes:
-      - ./front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/src:/usr/src/src
+      - ./front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/src:/app/src
     depends_on:
       - server
 
