@@ -122,3 +122,44 @@ Now that we have a user stored in our MongoDB and at least one (maybe more) book
 ```
 
 Success!! We have now loaded author information from the `users` collection in our MongoDB, as well as any book `id` or `title` values associated with that author id in PostgreSQL.
+
+## Apollo Graph Manager
+
+### Get a Graph Manager API key
+
+First, we need an Apollo Graph Manager API key. Navigate to [Apollo Graph Manager](https://engine.apollographql.com/), login, and click on New Graph on the sidebar or at the top. The prompt will instruct you to name your graph. When you're finished, click Create Graph. You'll see a key appear prefixed by service:. Copy that key so we can save it as an environment variable.
+
+Let's save our key as the environment variable `ENGINE_API_KEY` in `back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/.env`
+
+### Check and publish with the Apollo CLI
+
+To publish the schema to Graph Manager!, first, start your server in one terminal window with:
+
+```sh
+$ npm start
+```
+
+Then, publish your GraphQL schema to the Apollo registry:
+
+```sh
+# Make sure you are in the back-end/javascript/apollo-server/apollo-tutorial directory
+# Check to see if we have any breaking changes in our GraphQL schema before we publish it to the Apollo registry
+$ source .env && npx apollo service:check --endpoint=http://localhost:4000
+
+# Push the GraphQL schema to the Apollo registry
+$ source .env && npx apollo service:push --endpoint=http://localhost:4000
+```
+
+Now if you navigate to [Apollo Graph Manager](https://engine.apollographql.com/), you can dive into your schema and how it is being used.
+
+#### What are the benefits of Graph Manager
+
+Publishing your schema to Apollo Graph Manager unlocks many features necessary for running a graph API in production. Some of these features include:
+
+- Schema explorer: With Graph Manager's powerful schema registry, you can quickly explore all the types and fields in your schema with usage statistics on each field. This metric makes you understand the cost of a field. How expensive is a field? Is a certain field in so much demand?
+
+- Schema history: Apollo Graph Manager schema history allows developers to confidently iterate a graph's schema by validating the new schema against field-level usage data from the previous schema. This empowers developers to avoid breaking changes by providing insights into which clients will be broken by a new schema.
+
+- Performance analytics: Fine-grained insights into every field, resolvers, and operations of your graph's execution
+
+- Client awareness: Report client identity (name and version) to your server for insights on client activity.
