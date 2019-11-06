@@ -129,7 +129,7 @@ Success!! We have now loaded author information from the `users` collection in o
 
 First, we need an Apollo Graph Manager API key. Navigate to [Apollo Graph Manager](https://engine.apollographql.com/), login, and click on New Graph on the sidebar or at the top. The prompt will instruct you to name your graph. When you're finished, click Create Graph. You'll see a key appear prefixed by service:. Copy that key so we can save it as an environment variable.
 
-Let's save our key as an environment variable. It's important to make sure we don't check our Graph Manager API key into version control. Go ahead and make a copy of the `.env.example` file located in server/ and call it `.env`. Add your Graph Manager API key that you copied from the previous step to the file:
+Let's save our key as the environment variable `ENGINE_API_KEY` in `back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/.env`
 
 ### Check and publish with the Apollo CLI
 
