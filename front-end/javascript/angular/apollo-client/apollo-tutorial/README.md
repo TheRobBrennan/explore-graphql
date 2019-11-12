@@ -596,6 +596,53 @@ export class ActivityComponent {
 
 ### Code generation
 
+There's a tool to generate a ready to use in your component, strongly typed Angular services, for every defined query, mutation or subscription.
+
+In short, you define a query in `.graphql` file so your IDE gives you autocompletion and validation:
+
+```sh
+query allPosts {
+  posts {
+    id
+    title
+    votes
+    author {
+      id
+      firstName
+      lastName
+    }
+  }
+}
+```
+
+Code generation tool outputs to a file, a fully featured service called `AllPostsGQL` with every interface you will need:
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+// import a service and a type from the generated output
+import { Post, AllPostsGQL } from './generated';
+
+@Component({...})
+export class ListComponent implements OnInit {
+  posts: Observable<Post[]>;
+
+  // inject it
+  constructor(private allPostsGQL: AllPostsGQL) {}
+
+  ngOnInit() {
+    // use it!
+    this.posts = this.allPostsGQL.watch()
+      .valueChanges
+      .pipe(
+        map(result => result.data.posts)
+      );
+  }
+}
+```
+
 ## Network layer (Apollo link)
 
 ## Apollo Cache
