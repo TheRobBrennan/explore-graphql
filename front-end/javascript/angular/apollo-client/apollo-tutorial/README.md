@@ -550,6 +550,50 @@ export class UpvoterComponent {
 
 ### Subscription
 
+You create a service and extend it with a `Subscription` class from `apollo-angular`. Only thing you need to set is a `document` property:
+
+```javascript
+import {Injectable} from '@angular/core';
+import {Subscription} from 'apollo-angular';
+import gql from 'graphql-tag';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class NewPostGQL extends Subscription {
+  document = gql`
+    subscription newPost {
+      newPost {
+        id
+        title
+      }
+    }
+  `;
+}
+```
+
+We have now a ready to use GraphQL Subscription.
+
+#### Basic example
+
+```javascript
+import {Component, Input} from '@angular/core';
+import {NewPostGQL} from './graphql';
+
+@Component({ ... })
+export class ActivityComponent {
+  constructor(newPostGQL: NewPostGQL) {
+    this.lastPost = newPostGQL.subscribe();
+  }
+}
+```
+
+#### API of Subscription
+
+`Subscription` class has only one method:
+
++ `subscribe(variables?, options?, extraOptions?)` - it's the same as `Apollo.subscribe` except its first argument expect `variables`.
+
 ### Code generation
 
 ## Network layer (Apollo link)
