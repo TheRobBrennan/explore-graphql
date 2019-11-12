@@ -13,4 +13,7 @@ $ ng new apollo-tutorial
 $ cd apollo-tutorial
 $ ng add apollo-angular
 
+# Generate a new exchange-rates component
+$ ng g c exchange-rates --module app
+
 ```
