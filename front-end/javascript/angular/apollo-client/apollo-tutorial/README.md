@@ -186,6 +186,16 @@ The `map` operator we are using here is provided by the RxJS Observable which se
 
 To be able to use the `map` operator (and most others like `switchMap`, `filter`, `merge`, ...) these have to be explicitly imported as done in the example: `import {map} from 'rxjs/operators';`
 
+## Mutations
+
+## Query, Mutation, Subscription services
+
+## Network layer (Apollo link)
+
+## Apollo Cache
+
+## Local state management
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
