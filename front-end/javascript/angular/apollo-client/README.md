@@ -9,4 +9,8 @@ To create a new app from scratch using [Apollo client for Angular](https://www.a
 ```sh
 $ ng new apollo-tutorial
 
+# Installation with Angular Schematics
+$ cd apollo-tutorial
+$ ng add apollo-angular
+
 ```
