@@ -15,8 +15,8 @@
       "type": "chrome",
       "request": "launch",
       "name": "Apollo Angular [KARMA]",
-      "url": "http://localhost:9876/debug.html", // Docker container
-      // "url": "http://localhost:9877/debug.html",    // Local development machine
+      "url": "http://localhost:9876/debug.html", // Docker container with ng test already running
+      // "url": "http://localhost:9877/debug.html",    // Local development machine with ng test already running
       "webRoot": "${workspaceFolder}/front-end/javascript/angular/apollo-client/apollo-tutorial",
       "breakOnLoad": true,
       "sourceMaps": true,
