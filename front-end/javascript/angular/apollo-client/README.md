@@ -20,6 +20,6 @@ $ ng g c exchange-rates --module app
 
 ## Examples
 
-### Apollo tutorial
+### Apollo tutorial for Angular
 
 This example was based off the [Apollo tutorial for Angular](https://www.apollographql.com/docs/angular/basics/setup/) available at [https://www.apollographql.com/docs/angular/basics/setup/](https://www.apollographql.com/docs/angular/basics/setup/).

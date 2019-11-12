@@ -177,3 +177,49 @@ Stopping explore-graphql-server-mongoose-and-knex   ... done
 Stopping explore-graphql-mongodb                    ... done
 Stopping explore-graphql-postgresql                 ... done
 ```
+
+### EXAMPLE: Apollo tutorial for Angular
+
+This example is a slightly modified version of the [Apollo tutorial for Angular](https://www.apollographql.com/docs/angular/basics/setup/) available at [https://www.apollographql.com/docs/angular/basics/setup/](https://www.apollographql.com/docs/angular/basics/setup/).
+
+You can spin up the project by running:
+
+```sh
+$ npm run docker:apollo-tutorial-angular:up
+Starting apollo-tutorial-angular ... done
+Attaching to apollo-tutorial-angular
+apollo-tutorial-angular    | WARNING: This is a simple server for use in testing or debugging Angular applications
+apollo-tutorial-angular    | locally. It hasn't been reviewed for security issues.
+apollo-tutorial-angular    | 
+apollo-tutorial-angular    | Binding this server to an open connection can result in compromising your application or
+apollo-tutorial-angular    | computer. Using a different host than the one passed to the "--host" flag might result in
+apollo-tutorial-angular    | websocket connection issues. You might need to use "--disableHostCheck" if that's the
+apollo-tutorial-angular    | case.
+apollo-tutorial-angular    | ℹ ｢wds｣: Project is running at http://0.0.0.0:4200/webpack-dev-server/
+apollo-tutorial-angular    | ℹ ｢wds｣: webpack output is served from /
+apollo-tutorial-angular    | ℹ ｢wds｣: 404s will fallback to //index.html
+apollo-tutorial-angular    | 
+apollo-tutorial-angular    | chunk {main} main.js, main.js.map (main) 31 kB [initial] [rendered]
+apollo-tutorial-angular    | chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 264 kB [initial] [rendered]
+apollo-tutorial-angular    | chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+apollo-tutorial-angular    | chunk {styles} styles.js, styles.js.map (styles) 9.68 kB [initial] [rendered]
+apollo-tutorial-angular    | chunk {vendor} vendor.js, vendor.js.map (vendor) 4.99 MB [initial] [rendered]
+apollo-tutorial-angular    | Date: 2019-11-12T21:40:34.707Z - Hash: 39f26ae19ddb893e31a3 - Time: 19625ms
+apollo-tutorial-angular    | ** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+apollo-tutorial-angular    | ℹ ｢wdm｣: Compiled successfully.
+
+```
+
+This will create the following Docker containers:
+
+- `apollo-tutorial-angular` - A simple [Angular](https://angular.io) web application
+
+You should be able visit [http://localhost:4200](http://localhost:4200) to verify the front-end web application is running.
+
+Once you have finished with your work - or if you would like to stop the project from running - you can press CTRL+C and watch the application gracefully shut down:
+
+```sh
+# Press CTRL+C one time (pressing it twice will force the application to quit)
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping apollo-tutorial-angular ... done
+```
