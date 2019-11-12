@@ -1,0 +1,9 @@
+<div *ngIf="loading$ | async">
+  Loading...
+</div>
+<div *ngIf="errors$ | async">
+  Error :(
+</div>
+<div *ngFor="let rate of rates$ | async">
+  <p>{{rate.currency}}: {{rate.rate}}</p>
+</div>

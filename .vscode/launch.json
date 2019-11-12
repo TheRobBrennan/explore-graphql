@@ -1,0 +1,28 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Apollo Angular [LOCAL]",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/front-end/javascript/angular/apollo-client/apollo-tutorial"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Apollo Angular [KARMA]",
+      "url": "http://localhost:9876/debug.html", // Docker container with ng test already running
+      // "url": "http://localhost:9877/debug.html",    // Local development machine with ng test already running
+      "webRoot": "${workspaceFolder}/front-end/javascript/angular/apollo-client/apollo-tutorial",
+      "breakOnLoad": true,
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "*": "${webRoot}/*"
+      }
+    }
+  ]
+}
