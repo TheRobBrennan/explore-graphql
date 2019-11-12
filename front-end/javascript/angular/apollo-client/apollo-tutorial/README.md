@@ -488,6 +488,66 @@ Query class has two methods:
 
 ### Mutation
 
+You create a service and extend it with a `Mutation` class from `apollo-angular`. Only thing you need to set is a `document` property:
+
+```javascript
+import {Injectable} from '@angular/core';
+import {Mutation} from 'apollo-angular';
+import gql from 'graphql-tag';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UpvotePostGQL extends Mutation {
+  document = gql`
+    mutation upvotePost($postId: Int!) {
+      upvotePost(postId: $postId) {
+        id
+        votes
+      }
+    }
+  `;
+}
+```
+
+We have now a ready to use GraphQL Mutation.
+
+#### Basic example
+
+```javascript
+import {Component, Input} from '@angular/core';
+import {UpvotePostGQL} from './graphql';
+
+@Component({
+  selector: 'app-upvoter',
+  template: `
+    <button (click)="upvote()">
+      Upvote
+    </button>
+  `,
+})
+export class UpvoterComponent {
+  @Input()
+  postId: number;
+
+  constructor(private upvotePostGQL: UpvotePostGQL) {}
+
+  upvote() {
+    this.upvotePostGQL
+      .mutate({
+        postId: this.postId,
+      })
+      .subscribe();
+  }
+}
+```
+
+#### API of Mutation
+
+`Mutation` class has only one method:
+
++ `mutate(variables?, options?)` - it's the same as `Apollo.mutate` except it accepts `variables` as a first argument and regular `options` as the second one.
+
 ### Subscription
 
 ### Code generation
