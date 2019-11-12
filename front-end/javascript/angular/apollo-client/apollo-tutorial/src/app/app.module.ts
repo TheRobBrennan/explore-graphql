@@ -5,16 +5,34 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 
+// Apollo
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    ApolloModule,
+    HttpLinkModule
   ],
-  providers: [],
+  providers: [{
+    provide: APOLLO_OPTIONS,
+    useFactory: (httpLink: HttpLink) => {
+      return {
+        // Use the Apollo cache for storing data in memory
+        cache: new InMemoryCache(),
+        // Connect our client to an external GraphQL server
+        link: httpLink.create({
+          uri: 'https://o5x5jzoo7z.sse.codesandbox.io/graphql'
+        })
+      };
+    },
+    deps: [HttpLink]
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
