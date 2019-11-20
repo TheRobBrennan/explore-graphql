@@ -4,7 +4,9 @@
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "description": "A starting point to explore GraphQL",
   "scripts": {
-    "start": "npm run docker:apollo-tutorial-angular:up",
+    "start": "npm run docker:hasura-docker-quickstart:up",
+    "build": "npm run docker:hasura-docker-quickstart:up:clean",
+    "down": "npm run docker:hasura-docker-quickstart:down",
     "docker:apollo-tutorial:up": "docker-compose -f docker-compose.apollo-tutorial.yml up",
     "docker:apollo-tutorial:up:clean": "docker-compose -f docker-compose.apollo-tutorial.yml up --remove-orphans --build",
     "docker:apollo-tutorial:down": "docker-compose -f docker-compose.apollo-tutorial.yml down",
@@ -20,6 +22,9 @@
     "docker:example-server-with-mongodb-and-postgres:up": "docker-compose -f docker-compose.example-server-using-mongodb-and-postgresql.yml up",
     "docker:example-server-with-mongodb-and-postgres:up:clean": "docker-compose -f docker-compose.example-server-using-mongodb-and-postgresql.yml up --remove-orphans --build",
     "docker:example-server-with-mongodb-and-postgres:down": "docker-compose -f docker-compose.example-server-using-mongodb-and-postgresql.yml down",
+    "docker:hasura-docker-quickstart:up": "docker-compose -f docker-compose.hasura-docker-quickstart.yml up",
+    "docker:hasura-docker-quickstart:up:clean": "docker-compose -f docker-compose.hasura-docker-quickstart.yml up --remove-orphans --build",
+    "docker:hasura-docker-quickstart:down": "docker-compose -f docker-compose.hasura-docker-quickstart.yml down",
     "docker:nuke": "npm run docker:nuke:containers && docker rmi -f $(docker images -q)",
     "docker:nuke:containers": "docker rm $(docker ps -aq)"
   },
