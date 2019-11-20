@@ -2,6 +2,7 @@ version: '3.6'
 services:
   graphql-engine:
     image: hasura/graphql-engine:v1.0.0-beta.10
+    container_name: 'hasura-graphql-api'
     ports:
     - "8080:8080"
     depends_on:
@@ -15,6 +16,7 @@ services:
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
   postgres:
     image: postgres
+    container_name: 'hasura-graphql-db'
     restart: always
     volumes:
     - db_data:/var/lib/postgresql/data
