@@ -34,28 +34,10 @@ Before starting this project, you will need to update the following `.env.exampl
 Once this is complete, you can spin up the project by running:
 
 ```sh
-$ npm run docker:apollo-tutorial:up
-apollo-tutorial-server | Loaded 'mongodb:27017' in [1] seconds
-apollo-tutorial-server | wait done with status=0
-apollo-tutorial-server | [nodemon] 1.19.3
-apollo-tutorial-server | [nodemon] to restart at any time, enter `rs`
-apollo-tutorial-server | [nodemon] watching dir(s): *.*
-apollo-tutorial-server | [nodemon] watching extensions: js,json,graphql
-apollo-tutorial-server | [nodemon] starting `node src/index.js`
-apollo-tutorial-app | Starting the development server...
-apollo-tutorial-app | 
-apollo-tutorial-server | 🚀 Server ready at http://localhost:4000/
-apollo-tutorial-app | Compiled successfully!
-apollo-tutorial-app | 
-apollo-tutorial-app | You can now view client in the browser.
-apollo-tutorial-app | 
-apollo-tutorial-app |   Local:            http://localhost:3000/
-apollo-tutorial-app |   On Your Network:  http://172.26.0.4:3000/
-apollo-tutorial-app | 
-apollo-tutorial-app | Note that the development build is not optimized.
-apollo-tutorial-app | To create a production build, use yarn build.
-apollo-tutorial-app | 
+$ npm run start:apollo-tutorial-react
 
+# If you have made any changes to any Docker related files or package.json, you can force a clean build of the app with:
+$ npm run start:apollo-tutorial-react:clean
 ```
 
 This will create the following Docker containers:
@@ -67,13 +49,21 @@ You should be able to explore the [GraphQL playground](http://localhost:4000/gra
 
 You should be able to see a response from [http://localhost:3000](http://localhost:3000) to verify the front-end web application is running.
 
-Once you have finished with your work - or if you would like to stop the project from running - you can press CTRL+C and watch the application gracefully shut down:
+When you are finished, simply press CTRL+C to spin down the app:
 
 ```sh
-# Press CTRL+C one time (pressing it twice will force the application to quit)
 ^CGracefully stopping... (press Ctrl+C again to force)
-Stopping apollo-tutorial-app      ... done
-Stopping apollo-tutorial-server   ... done
+```
+
+Finally, you can spin down and remove the Docker container(s) for this app with:
+
+```sh
+$ npm run stop:apollo-tutorial-react
+Stopping apollo-tutorial-app    ... done
+Stopping apollo-tutorial-server ... done
+Removing apollo-tutorial-app    ... done
+Removing apollo-tutorial-server ... done
+Removing network apollo-tutorial-react_default
 ```
 
 ### EXAMPLE: Client/server app with MongoDB
