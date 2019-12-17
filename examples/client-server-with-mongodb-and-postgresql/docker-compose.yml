@@ -1,14 +1,28 @@
 version: '3'
 
 services:
+  client:
+    build:
+      context: ../../front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial
+      dockerfile: ./Dockerfile
+    container_name: 'explore-graphql-app'
+    command: sh -c './node_modules/.bin/react-scripts start'
+    ports:
+      - "3000:3000"
+    # Automatically hot reload code changes in the Docker container
+    volumes:
+      - ../../front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/src:/app/src
+    depends_on:
+      - server
+
   server:
     build:
-      context: ./back-end/javascript/apollo-server/example-using-mongodb-and-postgresql
+      context: ../../back-end/javascript/apollo-server/example-using-mongodb-and-postgresql
       dockerfile: ./Dockerfile
     container_name: 'explore-graphql-server-mongoose-and-knex'
     # Automatically hot reload code changes in the Docker container
     volumes:
-      - ./back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/src:/app/src
+      - ../../back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/src:/app/src
     # This service will not start until both the mongodb and postgres services are available OR thirty seconds have elapsed
     command: sh -c './scripts/wait-for.sh --timeout=30 mongodb:27017 postgres:5432 && ./node_modules/.bin/nodemon ./src/index.js -e js,json,graphql'
     ports:
