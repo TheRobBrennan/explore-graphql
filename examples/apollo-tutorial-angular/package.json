@@ -1,0 +1,14 @@
+{
+  "name": "apollo-tutorial-angular",
+  "version": "0.0.0",
+  "description": "This example is a slightly modified version of the [Apollo tutorial for Angular](https://www.apollographql.com/docs/angular/basics/setup/) available at [https://www.apollographql.com/docs/angular/basics/setup/](https://www.apollographql.com/docs/angular/basics/setup/).",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose up",
+    "build": "docker-compose up --remove-orphans --build --force-recreate",
+    "stop": "docker-compose down"
+  },
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "license": "ISC"
+}
