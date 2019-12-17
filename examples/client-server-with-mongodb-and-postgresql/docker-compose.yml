@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: ../../front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial
+      dockerfile: ./Dockerfile
+    container_name: 'explore-graphql-app'
+    command: sh -c './node_modules/.bin/react-scripts start'
+    ports:
+      - "3000:3000"
+    # Automatically hot reload code changes in the Docker container
+    volumes:
+      - ../../front-end/javascript/react/apollo-client/v2.6.x/apollo-tutorial/src:/app/src
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ../../back-end/javascript/apollo-server/example-using-mongodb-and-postgresql
+      dockerfile: ./Dockerfile
+    container_name: 'explore-graphql-server-mongoose-and-knex'
+    # Automatically hot reload code changes in the Docker container
+    volumes:
+      - ../../back-end/javascript/apollo-server/example-using-mongodb-and-postgresql/src:/app/src
+    # This service will not start until both the mongodb and postgres services are available OR thirty seconds have elapsed
+    command: sh -c './scripts/wait-for.sh --timeout=30 mongodb:27017 postgres:5432 && ./node_modules/.bin/nodemon ./src/index.js -e js,json,graphql'
+    ports:
+      - "4000:4000"
+      - "9229:9229"
+    depends_on:
+      - mongodb
+      - postgres
+
+  mongodb:
+    image: mongo
+    container_name: "explore-graphql-mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    # If you want to persist MongoDB data after a container has been removed, uncomment the volumes section
+    # volumes:
+    #   - ./databases/mongodb/sandbox/data/db:/data/db
+    ports:
+      - "27017:27017"
+
+  postgres:
+    image: postgres:9.6
+    container_name: 'explore-graphql-postgresql'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    restart: always
+    # If you want to persist data after a container has been removed, uncomment the volumes section
+    # volumes:
+    #   - ./databases/postgresql/sandbox/data:/var/lib/postgresql/data
