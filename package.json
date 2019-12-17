@@ -5,9 +5,9 @@
   "description": "A starting point to explore GraphQL",
   "scripts": {
     "build": "npm run start:clean",
-    "start": "npm run start:client-server-with-mongodb",
-    "start:clean": "npm run start:client-server-with-mongodb:clean",
-    "stop": "npm run stop:client-server-with-mongodb",
+    "start": "npm run start:client-server-with-postgresql",
+    "start:clean": "npm run start:client-server-with-postgresql:clean",
+    "stop": "npm run stop:client-server-with-postgresql",
     "start:apollo-tutorial-react": "cd examples/apollo-tutorial-react && npm start",
     "start:apollo-tutorial-react:clean": "cd examples/apollo-tutorial-react && npm run build",
     "stop:apollo-tutorial-react": "cd examples/apollo-tutorial-react && npm run stop",
@@ -17,6 +17,9 @@
     "start:client-server-with-mongodb": "cd examples/client-server-with-mongodb && npm start",
     "start:client-server-with-mongodb:clean": "cd examples/client-server-with-mongodb && npm run build",
     "stop:client-server-with-mongodb": "cd examples/client-server-with-mongodb && npm run stop",
+    "start:client-server-with-postgresql": "cd examples/client-server-with-postgresql && npm start",
+    "start:client-server-with-postgresql:clean": "cd examples/client-server-with-postgresql && npm run build",
+    "stop:client-server-with-postgresql": "cd examples/client-server-with-postgresql && npm run stop",
     "docker:nuke": "docker system prune -a && docker volume prune"
   },
   "keywords": [
