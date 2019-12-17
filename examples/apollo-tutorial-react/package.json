@@ -1,0 +1,12 @@
+{
+  "name": "apollo-tutorial-react",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose up",
+    "build": "docker-compose up --remove-orphans --build --force-recreate",
+    "stop": "docker-compose down"
+  },
+  "author": "Rob Brennan <rob@therobbrennan.com>",
+  "license": "ISC"
+}
