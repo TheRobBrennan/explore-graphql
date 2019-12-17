@@ -1,4 +1,5 @@
 .angulardoc.json
+node_modules/
 
 # Back-end
 back-end/javascript/apollo-server/apollo-tutorial/node_modules
