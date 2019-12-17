@@ -8,7 +8,7 @@ You can spin up the project by running:
 $ npm run start
 
 # If you have made any changes to any Docker related files or package.json, you can force a clean build of the app with:
-$ npm run start:clean
+$ npm run build
 ```
 
 This will create the following Docker containers:
