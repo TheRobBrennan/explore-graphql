@@ -1,0 +1,14 @@
+{
+  "name": "client-server-with-mongodb-and-postgresql",
+  "version": "0.0.0",
+  "description": "What if we have a back-end server that needs to work with more than one back-end database?",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose up",
+    "build": "docker-compose up --remove-orphans --build --force-recreate",
+    "stop": "docker-compose down"
+  },
+  "license": "ISC"
+}
