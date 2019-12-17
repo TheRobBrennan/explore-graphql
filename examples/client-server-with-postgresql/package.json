@@ -1,0 +1,14 @@
+{
+  "name": "client-server-with-postgresql",
+  "version": "0.0.0",
+  "description": "If you would like to experiment with a PostgreSQL back-end database for your project, you can spin up the example Apollo client and server app (see `examples/apollo-tutorial-react` to make sure you have configured the examples correctly) with the `docker-compose.yml` file in this folder.",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose up",
+    "build": "docker-compose up --remove-orphans --build --force-recreate",
+    "stop": "docker-compose down"
+  },
+  "license": "ISC"
+}
