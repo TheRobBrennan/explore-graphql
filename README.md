@@ -24,38 +24,6 @@ To use this repo, you will need to have [Docker](https://www.docker.com) install
 
 Please refer to specific subfolders contained within `/examples` for specific details on each example.
 
-### EXAMPLE: Client/server app with PostgreSQL
-
-If you would like to experiment with a PostgreSQL back-end database for your project, you can spin up the example Apollo client and server app (see "EXAMPLE: Apollo Fullstack GraphQL Tutorial" to make sure you have configured the examples correctly) with the `docker-compose.example-client-server-with-postgresql.yml` file.
-
-Once this is complete, you can spin up the project by running:
-
-```sh
-$ npm run docker:example-client-server-with-postgresql:up
-
-```
-
-This will create the following Docker containers:
-
-- `explore-graphql-app` - A simple [React](https://reactjs.org) web application
-- `explore-graphql-server` - The [GraphQL](https://graphql.org) server
-- `explore-graphql-postgresql` - A [PostgreSQL](https://www.postgresql.org) server that does not retain data by default
-  - This PostgreSQL server is **NOT USED BY THE TUTORIAL** but simply included for reference on adding additional database servers or services
-  - Please refer to `docker-compose.example-client-server-with-postgresql.yml` to see how you can map a local path if you want to persist your data
-
-You should be able to explore the [GraphQL playground](http://localhost:4000/graphql) by visiting [http://localhost:4000/graphql](http://localhost:4000/graphql) to verify the GraphQL API is running.
-
-You should be able to see a response from [http://localhost:3000](http://localhost:3000) to verify the front-end web application is running.
-
-Once you have finished with your work - or if you would like to stop the project from running - you can press CTRL+C and watch the application gracefully shut down:
-
-```sh
-^CGracefully stopping... (press Ctrl+C again to force)
-Stopping explore-graphql-app        ... done
-Stopping explore-graphql-server     ... done
-Stopping explore-graphql-postgresql ... done
-```
-
 ### EXAMPLE: Server using both MongoDB and PostgreSQL
 
 What if we have a back-end server that needs to work with more than one back-end database?
