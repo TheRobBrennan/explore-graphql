@@ -20,7 +20,7 @@ On the back-end, I wanted a place where I could create example JavaScript server
 
 ## Getting started
 
-The easiest way to use this repo is to have [Docker](https://www.docker.com) installed and configured on your development machine.
+To use this repo, you will need to have [Docker](https://www.docker.com) installed and configured on your development machine.
 
 ### EXAMPLE: Apollo Fullstack GraphQL Tutorial
 
