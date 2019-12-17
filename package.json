@@ -5,9 +5,9 @@
   "description": "A starting point to explore GraphQL",
   "scripts": {
     "build": "npm run start:clean",
-    "start": "npm run start:client-server-with-mongodb-and-postgresql",
-    "start:clean": "npm run start:client-server-with-mongodb-and-postgresql:clean",
-    "stop": "npm run stop:client-server-with-mongodb-and-postgresql",
+    "start": "npm run start:hasura-docker-quickstart",
+    "start:clean": "npm run start:hasura-docker-quickstart:clean",
+    "stop": "npm run stop:hasura-docker-quickstart",
     "start:apollo-tutorial-react": "cd examples/apollo-tutorial-react && npm start",
     "start:apollo-tutorial-react:clean": "cd examples/apollo-tutorial-react && npm run build",
     "stop:apollo-tutorial-react": "cd examples/apollo-tutorial-react && npm run stop",
@@ -23,6 +23,9 @@
     "start:client-server-with-postgresql": "cd examples/client-server-with-postgresql && npm start",
     "start:client-server-with-postgresql:clean": "cd examples/client-server-with-postgresql && npm run build",
     "stop:client-server-with-postgresql": "cd examples/client-server-with-postgresql && npm run stop",
+    "start:hasura-docker-quickstart": "cd examples/hasura-docker-quickstart && npm start",
+    "start:hasura-docker-quickstart:clean": "cd examples/hasura-docker-quickstart && npm run build",
+    "stop:hasura-docker-quickstart": "cd examples/hasura-docker-quickstart && npm run stop",
     "docker:nuke": "docker system prune -a && docker volume prune"
   },
   "keywords": [

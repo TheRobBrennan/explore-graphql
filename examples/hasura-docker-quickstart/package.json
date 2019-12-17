@@ -1,0 +1,14 @@
+{
+  "name": "hasura-docker-quickstart",
+  "version": "0.0.0",
+  "description": "This example is a slightly modified version of the [Quickstart with Docker](https://docs.hasura.io/1.0/graphql/manual/getting-started/docker-simple.html).",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose up",
+    "build": "docker-compose up --remove-orphans --build --force-recreate",
+    "stop": "docker-compose down"
+  },
+  "license": "ISC"
+}
