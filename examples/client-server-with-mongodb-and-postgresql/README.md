@@ -23,10 +23,10 @@ This will create the following Docker containers:
 - `explore-graphql-server` - The [GraphQL](https://graphql.org) server
 - `explore-graphql-mongodb` - A [MongoDB](https://www.mongodb.com) server that does not retain data by default
   - This MongoDB server is **NOT USED BY THE TUTORIAL** but simply included for reference on adding additional database servers or services
-  - Please refer to `docker-compose.example-server-using-mongodb-and-postgresql.yml` to see how you can map a local path if you want to persist your MongoDB data
+  - Please refer to `docker-compose.yml` to see how you can map a local path if you want to persist your MongoDB data
 - `explore-graphql-postgresql` - A [PostgreSQL](https://www.postgresql.org) server that does not retain data by default
   - This PostgreSQL server is **NOT USED BY THE TUTORIAL** but simply included for reference on adding additional database servers or services
-  - Please refer to `docker-compose.example-server-using-mongodb-and-postgresql.yml` to see how you can map a local path if you want to persist your data
+  - Please refer to `docker-compose.yml` to see how you can map a local path if you want to persist your data
 
 You should be able to explore the [GraphQL playground](http://localhost:4000/graphql) by visiting [http://localhost:4000/graphql](http://localhost:4000/graphql) to verify the GraphQL API is running.
 
