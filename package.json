@@ -5,12 +5,15 @@
   "description": "A starting point to explore GraphQL",
   "scripts": {
     "build": "npm run start:clean",
-    "start": "npm run start:apollo-tutorial-react",
-    "start:clean": "npm run start:apollo-tutorial-react:clean",
-    "stop": "npm run stop:apollo-tutorial-react",
+    "start": "npm run start:apollo-tutorial-angular",
+    "start:clean": "npm run start:apollo-tutorial-angular:clean",
+    "stop": "npm run stop:apollo-tutorial-angular",
     "start:apollo-tutorial-react": "cd examples/apollo-tutorial-react && npm start",
     "start:apollo-tutorial-react:clean": "cd examples/apollo-tutorial-react && npm run build",
     "stop:apollo-tutorial-react": "cd examples/apollo-tutorial-react && npm run stop",
+    "start:apollo-tutorial-angular": "cd examples/apollo-tutorial-angular && npm start",
+    "start:apollo-tutorial-angular:clean": "cd examples/apollo-tutorial-angular && npm run build",
+    "stop:apollo-tutorial-angular": "cd examples/apollo-tutorial-angular && npm run stop",
     "docker:nuke": "docker system prune -a && docker volume prune"
   },
   "keywords": [
