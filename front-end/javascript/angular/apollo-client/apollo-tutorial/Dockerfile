@@ -1,9 +1,9 @@
-FROM node:12.13.0
+FROM node:12-alpine
 
 # Install Chrome for Protractor tests
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update && apt-get install -yq google-chrome-stable
+RUN apk add chromium chromium-chromedriver
+ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROME_DRIVER=/usr/bin/chromedriver
 
 # Create the app directory
 WORKDIR /app
@@ -17,7 +17,3 @@ RUN npm install
 
 # Copy application code
 COPY . ./
-
-# Expose our application port
-EXPOSE 4200
-EXPOSE 9876
