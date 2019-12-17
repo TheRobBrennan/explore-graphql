@@ -25,8 +25,16 @@ You should be able to see a response from [http://localhost:3000](http://localho
 
 Once you have finished with your work - or if you would like to stop the project from running - you can press CTRL+C and watch the application gracefully shut down:
 
+When you are finished, simply press CTRL+C to spin down the app:
+
 ```sh
 ^CGracefully stopping... (press Ctrl+C again to force)
+```
+
+Finally, you can spin down and remove the Docker container(s) for this app with:
+
+```sh
+$ npm run stop
 Stopping explore-graphql-app     ... done
 Stopping explore-graphql-server  ... done
 Stopping explore-graphql-mongodb ... done
